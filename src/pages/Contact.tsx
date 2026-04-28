@@ -43,6 +43,18 @@ export default function Contact() {
       value: '@tang_fish0',
       link: 'https://instagram.com/tang_fish0',
     },
+    {
+      icon: '📱',
+      title: 'Telegram',
+      value: '@Tang10Yu',
+      link: 'https://t.me/Tang10Yu',
+    },
+    {
+      icon: '🔗',
+      title: 'GitLab',
+      value: 'gitlab.com/candytangsys',
+      link: 'https://gitlab.com/candytangsys',
+    },
   ]
 
   return (
@@ -74,7 +86,7 @@ export default function Contact() {
           >
             <h2 className="text-2xl font-bold text-primary text-center mb-8">找到我的方式 📍</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {contactMethods.map((method, index) => (
                 <motion.a
                   key={index}
@@ -211,7 +223,8 @@ export default function Contact() {
                   "Driven by curiosity, growing through challenges."
                 </p>
                 <p className="text-gray-600 mt-2">
-                  一個帶著衝勁闖進未知領域的人，總能在挑戰中快速成長。
+                  一個帶著衝勁闖進未知領域的人，喜歡在挑戰中快速成長。
+                  <span className="line-through">不排除會崩潰的部分</span>
                 </p>
               </motion.div>
             </div>
@@ -227,12 +240,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-2xl font-bold mb-4">期待聽到你的聲音 👋</h2>
-            <p className="text-lg text-blue-100">
-              無論你想討論 AI、新技術，或只是說「嘿，你網站不錯」，
-              <br />
-              我都很想聽！
-            </p>
+            <h2 className="text-2xl font-bold mb-4">擊個掌，跟我聊聊吧！ 👋</h2>
           </motion.div>
         </div>
       </section>

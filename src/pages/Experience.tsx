@@ -3,26 +3,46 @@ import { motion } from 'framer-motion'
 export default function Experience() {
   const experiences = [
     {
+      title: '校園電腦維修隊｜工讀生',
+      period: '2026 - now',
+      description: '協助校內資訊設備維護。',
+      responsibilities: [
+        '電腦硬體問題排除',
+        '設備檢修',
+        '系統安裝',
+        '印表機支援',
+        '現場資訊協助',
+      ],
+    },
+    {
+      title: '宿舍自治會｜成員',
+      period: '2026 - now',
+      description: '協助辦理宿舍內活動。',
+      responsibilities: [
+        '發放小禮物',
+        '慶祝節日',
+        '協助期初、期末搬宿舍事宜',
+      ],
+    },
+    {
+      title: '資訊技術研究社 成員',
+      period: '2026 - now',
+      description: '提早接觸高年級會製作的資訊東東',
+      responsibilities: [
+        '學習資訊技術',
+        '參與社團活動',
+        '技術實作練習',
+      ],
+    },
+    {
       title: 'STS 社團｜副社長',
-      period: '2023 - Present',
+      period: '2023 - 2024',
       description: '以推廣新竹在地歷史文物與文化為核心的學生社團。',
       responsibilities: [
         '協助社團運營',
         '活動規劃與執行',
         '團隊溝通協調',
-        '幹部管理與支援',
-      ],
-    },
-    {
-      title: '校慶活動｜總召（多次）',
-      period: '2022 - 2024',
-      description: '多次擔任班級活動總召。',
-      responsibilities: [
-        '表演企劃',
-        '編曲編舞',
-        '任務分工',
-        '團隊進度管理',
-        '現場統籌執行',
+        '社團管理與支援',
       ],
     },
     {
@@ -38,15 +58,15 @@ export default function Experience() {
       ],
     },
     {
-      title: '校園電腦維修隊｜工讀生',
-      period: '2022 - 2024',
-      description: '協助校內資訊設備維護。',
+      title: '校慶活動｜總召（多次）',
+      period: '國中 - 高中',
+      description: '多次擔任班級活動總召。',
       responsibilities: [
-        '電腦硬體問題排除',
-        '設備檢修',
-        '系統安裝',
-        '印表機支援',
-        '現場資訊協助',
+        '表演企劃',
+        '編曲編舞',
+        '任務分工',
+        '團隊進度管理',
+        '現場統籌執行',
       ],
     },
   ]

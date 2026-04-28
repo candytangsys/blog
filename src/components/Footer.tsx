@@ -31,12 +31,18 @@ export default function Footer() {
               <a href="https://instagram.com/tang_fish0" target="_blank" rel="noopener noreferrer" className="block hover:text-accent transition-colors">
                 Instagram
               </a>
+              <a href="https://gitlab.com/candytangsys" target="_blank" rel="noopener noreferrer" className="block hover:text-accent transition-colors">
+                GitLab
+              </a>
+              <a href="https://t.me/Tang10Yu" target="_blank" rel="noopener noreferrer" className="block hover:text-accent transition-colors">
+                Telegram
+              </a>
             </div>
           </div>
         </div>
         <div className="border-t border-blue-400 pt-8 text-center text-blue-100">
-          <p>做有趣的東西，和有趣的人一起工作 ✨</p>
-          <p className="mt-2 text-sm">&copy; 2024 Tang Yu • Made with ❤️ and curiosity</p>
+          <p>正在學習溫柔地表達立場 ✨</p>
+          <p className="mt-2 text-sm">&copy; Tang Yu</p>
         </div>
       </div>
     </footer>

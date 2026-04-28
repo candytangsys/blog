@@ -14,6 +14,14 @@ export default function Home() {
   ]
 
   const tags = ['#ENTP', '#優雅的厭世者', '#效率至上主義', '#莽夫']
+  
+  const dailyTags = [
+    { label: '#狼人殺', link: null },
+    { label: '#直播', link: null },
+    { label: '#追劇', link: null },
+    { label: '#追星', link: 'https://www.instagram.com/twicetagram/' },
+    { label: '#探索好吃的甜食', link: null },
+  ]
 
   return (
     <div className="pt-20 min-h-screen bg-slate-950 text-slate-100">
@@ -72,12 +80,32 @@ export default function Home() {
               className="rounded-[32px] border border-slate-800 bg-slate-900/95 p-10 shadow-2xl shadow-cyan-500/10"
             >
               <h2 className="text-2xl font-bold mb-6">關於我</h2>
-              <p className="text-slate-300 leading-relaxed mb-4">
-                你可以這麼形容我：「一個純純有衝勁的莽夫」，這讓我經常在還是一張白紙時就跳進未知的領域。
-                雖然過程總是以「小白」身分開場，但我超重的勝負欲不允許自己落後太久。
-              </p>
-              <p className="text-slate-400 leading-relaxed">
-                現在就讀淡江大學資訊管理系，大學生活裡喜歡用實作挖掘問題、用筆記整理思考，也喜歡和團隊一起把不可能變成有跡可循的成果。
+              <div className="text-slate-300 leading-relaxed">
+                {/* 第一段：核心特質 */}
+                <p className="mb-2">
+                  你可以這麼形容我：「一個純純有衝勁的莽夫」。
+                  <br />
+                  在還沒摸清地圖前我就敢先跳進未知領域，
+                </p>
+
+                {/* 第二段：幽默自嘲（獨立一行） */}
+                <p className="mb-4">
+                  <span className="line-through opacity-50 text-sm">
+                    大腦還在猶豫，身體已經先執行了 😅
+                  </span>
+                </p>
+
+                {/* 第三段：行動與態度 */}
+                <p className="mb-6">
+                  雖然開局總是「小白」，但我超強的勝負欲（求生欲）
+                  <br />
+                  會驅使我用最短時間跟上腳步，絕不讓自己落後太多。
+                </p>
+              </div>
+
+              {/* 願望部分 */}
+              <p className="text-slate-400 text-sm italic">
+                目前最大的願望是每天能準時上床睡覺。
               </p>
             </motion.section>
 
@@ -88,9 +116,26 @@ export default function Home() {
               className="grid gap-6 md:grid-cols-2"
             >
               <div className="rounded-[32px] border border-slate-800 bg-slate-900/95 p-8">
-                <h3 className="text-2xl font-semibold mb-4">目前</h3>
-                <p className="text-slate-300 mb-3">淡江大學資訊管理系在學中</p>
-                <p className="text-slate-300">我的日常是寫程式、修電腦、想活動，然後再想下一個可以衝的計畫。</p>
+                <h3 className="text-2xl font-semibold mb-4">日常標籤</h3>
+                <div className="flex flex-wrap gap-2">
+                  {dailyTags.map((tag) => (
+                    tag.link ? (
+                      <a
+                        key={tag.label}
+                        href={tag.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full border border-slate-800 bg-slate-800/80 px-3 py-1 text-slate-200 text-sm hover:border-cyan-400 hover:bg-slate-700 transition-all"
+                      >
+                        {tag.label}
+                      </a>
+                    ) : (
+                      <span key={tag.label} className="rounded-full border border-slate-800 bg-slate-800/80 px-3 py-1 text-slate-200 text-sm">
+                        {tag.label}
+                      </span>
+                    )
+                  ))}
+                </div>
               </div>
 
               <div className="rounded-[32px] border border-slate-800 bg-slate-900/95 p-8">

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>小魚.dev ✨</h3>
+            <h3 className="text-lg font-bold mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>Tang Yu</h3>
             <p className="text-blue-100">Curious • Energetic • Thoughtful</p>
           </div>
           <div>
@@ -41,7 +41,6 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-blue-400 pt-8 text-center text-blue-100">
-          <p>正在學習溫柔地表達立場 ✨</p>
           <p className="mt-2 text-sm">&copy; Tang Yu</p>
         </div>
       </div>

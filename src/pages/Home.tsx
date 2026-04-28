@@ -29,7 +29,7 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="relative w-44 h-44 rounded-full overflow-hidden border-4 border-cyan-400 shadow-2xl shadow-cyan-500/20">
                   <img
-                    src="/S__110952451.jpg"
+                    src={`${import.meta.env.BASE_URL}S__110952451.jpg`}
                     alt="Tang Yu"
                     className="w-full h-full object-cover"
                   />

@@ -8,7 +8,7 @@ export default function Skills() {
     },
     {
       name: 'Python',
-      details: ['自動化思維', '演算法基礎', '問題解決應用'],
+      details: ['自動化思維', '問題解決應用'],
     },
     {
       name: 'C#',
@@ -28,7 +28,6 @@ export default function Skills() {
     '電腦重灌與系統安裝',
     '硬體設備維修與更換',
     'BIOS 基本設定',
-    '校園設備維護',
     '印表機設定與排錯',
     '基礎網路問題處理',
   ]
@@ -37,15 +36,6 @@ export default function Skills() {
     { name: 'Excel', skills: ['IF 函數', 'VLOOKUP', '資料整理', '表單處理'] },
     { name: 'Word', skills: ['文件編輯與排版'] },
     { name: 'PowerPoint', skills: ['簡報製作與視覺呈現'] },
-  ]
-
-  const softSkills = [
-    '團隊合作',
-    '現場應變',
-    '問題解決',
-    '主動學習',
-    '教學引導',
-    '溝通協調',
   ]
 
   const containerVariants = {
@@ -78,7 +68,7 @@ export default function Skills() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl font-bold mb-4">The Tools I Play With 🎮</h1>
-            <p className="text-lg text-blue-100">不是完美的技能，但都是透過實踐學來的真本事</p>
+            <p className="text-lg text-blue-100">實踐學習中</p>
           </motion.div>
         </div>
       </section>
@@ -188,36 +178,6 @@ export default function Skills() {
         </div>
       </section>
 
-      {/* Soft Skills */}
-      <section className="py-16 bg-gradient-to-br from-accent to-cyan-300 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl font-bold mb-8">🚀 軟實力</h2>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-            >
-              {softSkills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-white bg-opacity-20 backdrop-blur-sm p-4 rounded-lg hover:bg-opacity-30 transition-all"
-                >
-                  <p className="text-lg font-semibold">{skill}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Learning */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -234,11 +194,9 @@ export default function Skills() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {[
-                'AI 應用技術',
                 'XR / Extended Reality',
                 'Linux 系統操作',
                 '網站架構設計',
-                '數位文資掃描應用',
               ].map((skill, index) => (
                 <motion.div
                   key={index}

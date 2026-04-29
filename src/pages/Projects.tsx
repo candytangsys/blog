@@ -9,21 +9,9 @@ export default function Projects() {
       link: '#',
     },
     {
-      title: 'Java 練習題集',
-      description: '整理與解決程式設計相關的練習題，強化邏輯思維。',
-      tech: ['Java', 'OOP'],
-      link: 'https://github.com/candytangsys',
-    },
-    {
-      title: 'Python 小工具',
-      description: '開發自動化工具與日常生活應用程式。',
-      tech: ['Python', '自動化'],
-      link: 'https://github.com/candytangsys',
-    },
-    {
-      title: 'C# 基礎專案',
-      description: '學習 C# 語言與 Windows 開發基礎的實踐項目。',
-      tech: ['C#', 'Windows'],
+      title: '練習題集',
+      description: '整理與解決程式設計相關的練習題。',
+      tech: ['Java', 'html'],
       link: 'https://github.com/candytangsys',
     },
   ]
@@ -58,7 +46,7 @@ export default function Projects() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl font-bold mb-4">Side Projects 💼</h1>
-            <p className="text-lg text-blue-100">邊學邊做，有時候成功，有時候失敗，但都很有趣</p>
+            <p className="text-lg text-blue-100">邊學邊做中</p>
           </motion.div>
         </div>
       </section>
@@ -130,7 +118,7 @@ export default function Projects() {
           >
             <h2 className="text-2xl font-bold mb-4">想看我的代碼倉庫？ 🚀</h2>
             <p className="text-lg text-blue-100 mb-8">
-              GitHub 上面還有一堆練習、失敗的實驗和突發奇想的小工具
+              GitHub 上面還有一堆練習(在組織裡)、會用到的小工具
             </p>
             <a
               href="https://github.com/candytangsys"
@@ -140,49 +128,6 @@ export default function Projects() {
             >
               訪問 GitHub Repository
             </a>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Learning Process */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl font-bold text-primary mb-8 text-center">我怎麼學的？ 🤔</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  step: '01',
-                  title: '實踐學習',
-                  description: '通過做專案而不是僅閱讀文檔來學習技術',
-                },
-                {
-                  step: '02',
-                  title: '持續改進',
-                  description: '反覆練習、測試和優化代碼品質',
-                },
-                {
-                  step: '03',
-                  title: '分享知識',
-                  description: '透過教學他人來加深自己的理解',
-                },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-white p-6 rounded-lg shadow-md text-center"
-                >
-                  <div className="text-4xl font-bold text-accent mb-3">{item.step}</div>
-                  <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
-                  <p className="text-gray-700">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>

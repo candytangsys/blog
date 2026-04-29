@@ -101,7 +101,7 @@ export default function Experience() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl font-bold mb-4">The Stuff I've Done 📖</h1>
-            <p className="text-lg text-blue-100">一些帶過團隊、面對挑戰、最後都解決了的經驗</p>
+            <p className="text-lg text-blue-100">一些帶過團隊、面對挑戰的經驗</p>
           </motion.div>
         </div>
       </section>

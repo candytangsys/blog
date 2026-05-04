@@ -46,13 +46,9 @@ export default function Home() {
 
               <div className="mt-8 text-center">
                 <p className="text-xs uppercase tracking-[0.35em] text-cyan-300">tang yu</p>
-                <h1 className="mt-4 text-3xl md:text-3xl font-black leading-tight">想做的事，先衝再說！</h1>
+                <h1 className="mt-4 text-3xl md:text-2xl font-black leading-tight">想做的事，先衝再說！</h1>
               </div>
 
-              <div className="mt-6 flex justify-center gap-4 text-2xl text-cyan-300">
-                <a href="mailto:candytang1009@gmail.com" aria-label="Email">✉️</a>
-                <a href="https://github.com/candytangsys" target="_blank" rel="noreferrer" aria-label="GitHub">🐙</a>
-              </div>
             </motion.div>
 
             <motion.nav

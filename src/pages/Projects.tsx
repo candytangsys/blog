@@ -12,7 +12,7 @@ export default function Projects() {
       title: '練習題集',
       description: '整理與解決程式設計相關的練習題。',
       tech: ['Java', 'html'],
-      link: 'https://github.com/candytangsys',
+      link: 'https://github.com/orgs/BasicExercises/repositories',
     },
   ]
 

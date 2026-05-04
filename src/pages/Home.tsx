@@ -17,7 +17,7 @@ export default function Home() {
   
   const dailyTags = [
     { label: '#狼人殺', link: null },
-    { label: '#直播', link: null },
+    { label: '#電競', link: 'https://www.instagram.com/ctesa.tw?igsh=N2Z0bTJ6cDVnZGF0' },
     { label: '#追劇', link: null },
     { label: '#追星', link: 'https://www.instagram.com/twicetagram/' },
     { label: '#探索好吃的甜食', link: null },
@@ -46,7 +46,7 @@ export default function Home() {
 
               <div className="mt-8 text-center">
                 <p className="text-xs uppercase tracking-[0.35em] text-cyan-300">tang yu</p>
-                <h1 className="mt-4 text-3xl md:text-4xl font-black leading-tight">想做的事，先衝再說！</h1>
+                <h1 className="mt-4 text-3xl md:text-3xl font-black leading-tight">想做的事，先衝再說！</h1>
               </div>
 
               <div className="mt-6 flex justify-center gap-4 text-2xl text-cyan-300">
@@ -85,17 +85,9 @@ export default function Home() {
                 <p className="mb-2">
                   你可以這麼形容我：「一個純純有衝勁的莽夫」。
                   <br />
-                  在還沒摸清地圖前我就敢先跳進未知領域，
+                  在還沒摸清地圖前我就敢先跳進未知領域(大腦還在猶豫，身體已經先執行了 😅)
                 </p>
 
-                {/* 第二段：幽默自嘲（獨立一行） */}
-                <p className="mb-4">
-                  <span className="line-through opacity-50 text-sm">
-                    大腦還在猶豫，身體已經先執行了 😅
-                  </span>
-                </p>
-
-                {/* 第三段：行動與態度 */}
                 <p className="mb-6">
                   雖然開局總是「小白」，但我超強的勝負欲（求生欲）
                   <br />

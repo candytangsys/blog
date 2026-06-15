@@ -10,6 +10,8 @@ export default function Navbar() {
     { name: '💻 技能', path: '/skills' },
     { name: '🤝 參與活動', path: '/experience' },
     { name: '📂 專案', path: '/projects' },
+    { name: '📝 筆記整理', path: '/notes' },
+    { name: '🎪 活動心得', path: '/activities' },
     { name: '✉️ 聯絡', path: '/contact' },
   ]
 

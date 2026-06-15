@@ -25,7 +25,7 @@ export default function Experience() {
       ],
     },
     {
-      title: '資訊技術研究社 成員',
+      title: '資訊技術研究社｜成員',
       period: '2026 - now',
       description: '提早接觸高年級會製作的資訊東東',
       responsibilities: [
@@ -161,70 +161,6 @@ export default function Experience() {
         </div>
       </section>
 
-      {/* Key Traits */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl font-bold text-primary mb-8 text-center">個人特質</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-lg shadow-md"
-              >
-                <h3 className="text-xl font-bold text-primary mb-3">別人眼中的我</h3>
-                <ul className="space-y-2">
-                  {['可靠', '認真', '做事負責', '雖然嘴上抱怨，但事情一定做好'].map((trait, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700">
-                      <span className="inline-block w-2 h-2 bg-accent rounded-full mr-3"></span>
-                      {trait}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-lg shadow-md"
-              >
-                <h3 className="text-xl font-bold text-primary mb-3">問題處理方式</h3>
-                <p className="text-gray-700">
-                  遇到問題時，我習慣主動找答案，而不是等待問題自己消失。
-                </p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-lg shadow-md"
-              >
-                <h3 className="text-xl font-bold text-primary mb-3">最有成就感的事</h3>
-                <p className="text-gray-700">
-                  幫助身邊重要的人修好電腦、解決困擾。
-                </p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-lg shadow-md"
-              >
-                <h3 className="text-xl font-bold text-primary mb-3">持續成長方向</h3>
-                <ul className="space-y-2">
-                  {['網站架構能力', 'XR 技術應用', '古蹟數位掃描與科技結合'].map((direction, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700">
-                      <span className="inline-block w-2 h-2 bg-accent rounded-full mr-3"></span>
-                      {direction}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   )
 }

@@ -1,16 +1,9 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 
 export default function Home() {
-  const collegeItems = [
-    '資訊技術研究社 成員',
-    '宿舍自治會 成員',
-    '電腦維修隊 成員 (預備役幹部)',
-  ]
-
-  const highSchoolItems = [
-    'STS社團 副社長',
-    '多項幹部與小老師經驗',
+  const experienceItems = [
+    { label: '大學', items: ['資訊技術研究社 成員', '宿舍自治會 成員', '電腦維修隊 成員 (預備役幹部)'] },
+    { label: '高中', items: ['STS社團 副社長', '多項幹部與小老師經驗'] },
   ]
 
   const tags = ['#ENTP', '#優雅的厭世者', '#效率至上主義', '#莽夫']
@@ -50,22 +43,6 @@ export default function Home() {
               </div>
 
             </motion.div>
-
-            <motion.nav
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="rounded-[32px] border border-slate-800 bg-slate-900/95 p-6"
-            >
-              <p className="text-xs uppercase tracking-[0.35em] text-slate-500">快速連結</p>
-              <div className="mt-4 space-y-3">
-                <Link to="/" className="block text-lg text-slate-100 hover:text-cyan-300 transition-colors">📍 關於我</Link>
-                <Link to="/skills" className="block text-lg text-slate-100 hover:text-cyan-300 transition-colors">💻 技能</Link>
-                <Link to="/experience" className="block text-lg text-slate-100 hover:text-cyan-300 transition-colors">🤝 參與活動</Link>
-                <Link to="/projects" className="block text-lg text-slate-100 hover:text-cyan-300 transition-colors">📂 專案</Link>
-                <Link to="/contact" className="block text-lg text-slate-100 hover:text-cyan-300 transition-colors">✉️ 聯絡</Link>
-              </div>
-            </motion.nav>
           </aside>
 
           <main className="space-y-8">
@@ -77,7 +54,6 @@ export default function Home() {
             >
               <h2 className="text-2xl font-bold mb-6">關於我</h2>
               <div className="text-slate-300 leading-relaxed">
-                {/* 第一段：核心特質 */}
                 <p className="mb-2">
                   你可以這麼形容我：「一個純純有衝勁的莽夫」。
                   <br />
@@ -91,7 +67,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* 願望部分 */}
               <p className="text-slate-400 text-sm italic">
                 目前最大的願望是每天能準時上床睡覺。
               </p>
@@ -142,23 +117,20 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="grid gap-6 md:grid-cols-2"
+              className="rounded-[32px] border border-slate-800 bg-slate-900/95 p-8"
             >
-              <div className="rounded-[32px] border border-slate-800 bg-slate-900/95 p-8">
-                <h3 className="text-2xl font-semibold mb-4">大學經歷</h3>
-                <ul className="space-y-3 text-slate-300">
-                  {collegeItems.map((item) => (
-                    <li key={item} className="list-disc list-inside">{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="rounded-[32px] border border-slate-800 bg-slate-900/95 p-8">
-                <h3 className="text-2xl font-semibold mb-4">高中經歷</h3>
-                <ul className="space-y-3 text-slate-300">
-                  {highSchoolItems.map((item) => (
-                    <li key={item} className="list-disc list-inside">{item}</li>
-                  ))}
-                </ul>
+              <h3 className="text-2xl font-semibold mb-6">經歷</h3>
+              <div className="space-y-6">
+                {experienceItems.map((group) => (
+                  <div key={group.label}>
+                    <p className="text-xs uppercase tracking-[0.25em] text-cyan-400 mb-2">{group.label}</p>
+                    <ul className="space-y-2 text-slate-300">
+                      {group.items.map((item) => (
+                        <li key={item} className="list-disc list-inside">{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </motion.section>
 

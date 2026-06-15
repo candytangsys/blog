@@ -1,62 +1,83 @@
 import { motion } from 'framer-motion'
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+}
+
+interface Skill {
+  name: string
+  note: string
+  level: 'comfortable' | 'learning' | 'touched'
+}
+
+interface SkillGroup {
+  title: string
+  emoji: string
+  skills: Skill[]
+}
+
+const levelLabel: Record<Skill['level'], string> = {
+  comfortable: '有在用',
+  learning: '學習中',
+  touched: '接觸過',
+}
+
+const levelColor: Record<Skill['level'], string> = {
+  comfortable: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
+  learning: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
+  touched: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
+}
+
+const skillGroups: SkillGroup[] = [
+  {
+    title: '程式語言',
+    emoji: '💻',
+    skills: [
+      { name: 'Java', note: '物件導向、繼承，在終端機程式用過', level: 'comfortable' },
+      { name: 'Python', note: '入門中，還在摸語法', level: 'learning' },
+      { name: 'HTML', note: '能讀懂結構，與 AI 協作做出過網頁', level: 'comfortable' },
+      { name: 'C#', note: '看得懂語法，不會從頭自己寫', level: 'touched' },
+      { name: 'C++', note: '看得懂語法，不會從頭自己寫', level: 'touched' },
+    ],
+  },
+  {
+    title: '前端',
+    emoji: '🖥️',
+    skills: [
+      { name: 'React', note: '用過，這個網站本身就是', level: 'comfortable' },
+      { name: '純 HTML / CSS / JS', note: '有自己動手寫過', level: 'comfortable' },
+      { name: 'Tailwind CSS', note: '這個網站有用到，邊查邊寫', level: 'learning' },
+    ],
+  },
+  {
+    title: '後端 & 資料庫',
+    emoji: '🗄️',
+    skills: [
+      { name: 'Node.js / Express', note: '看過 AI 寫、知道流程，沒自己獨立跑起來過', level: 'touched' },
+      { name: 'Python Flask', note: '看過 AI 寫、知道流程，沒自己獨立跑起來過', level: 'touched' },
+      { name: 'PostgreSQL / Supabase', note: '用 AI 協助寫過操作程式碼，沒完全獨立串接過', level: 'touched' },
+      { name: 'Access', note: '整理資料用', level: 'comfortable' },
+    ],
+  },
+  {
+    title: '開發工具',
+    emoji: '🛠️',
+    skills: [
+      { name: 'Git / GitHub', note: '有在用，基本版控流程', level: 'comfortable' },
+      { name: 'GitHub Pages / Vercel', note: '有部署過這個網站', level: 'comfortable' },
+      { name: 'VMware', note: '開虛擬機練習用', level: 'comfortable' },
+      { name: 'Linux', note: '只會基本指令（ls、cd、mkdir）', level: 'learning' },
+    ],
+  },
+]
+
 export default function Skills() {
-  const programmingSkills = [
-    {
-      name: 'Java',
-      details: ['物件導向概念', '程式邏輯設計', '基礎專案開發'],
-    },
-    {
-      name: 'Python',
-      details: ['自動化思維', '問題解決應用'],
-    },
-    {
-      name: 'C#',
-      details: ['語法熟悉', '基礎應用開發'],
-    },
-    {
-      name: 'C++',
-      details: ['程式碼閱讀能力'],
-    },
-    {
-      name: 'HTML',
-      details: ['網頁結構理解', '基礎前端頁面設計'],
-    },
-  ]
-
-  const itSkills = [
-    '電腦重灌與系統安裝',
-    '硬體設備維修與更換',
-    'BIOS 基本設定',
-    '印表機設定與排錯',
-    '基礎網路問題處理',
-  ]
-
-  const toolSkills = [
-    { name: 'Excel', skills: ['IF 函數', 'VLOOKUP', '資料整理', '表單處理'] },
-    { name: 'Word', skills: ['文件編輯與排版'] },
-    { name: 'PowerPoint', skills: ['簡報製作與視覺呈現'] },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  }
-
   return (
     <div className="pt-20 pb-20">
       {/* Header */}
@@ -68,142 +89,84 @@ export default function Skills() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl font-bold mb-4">The Tools I Play With 🎮</h1>
-            <p className="text-lg text-blue-100">實踐學習中</p>
+            <p className="text-lg text-blue-100">實踐學習中，誠實面對自己的程度</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Programming Skills */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl font-bold text-primary mb-8">💻 程式語言（還在探索中）</h2>
+      {/* Legend */}
+      <section className="py-6 bg-white border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-4 justify-center">
+          {(Object.keys(levelLabel) as Skill['level'][]).map((level) => (
+            <span key={level} className={`px-3 py-1 rounded-full text-xs font-medium border ${levelColor[level]}`}>
+              {levelLabel[level]}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Skill Groups */}
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          {skillGroups.map((group) => (
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              {programmingSkills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -10, shadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-                  className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-all"
-                >
-                  <h3 className="text-xl font-bold text-primary mb-3">{skill.name}</h3>
-                  <ul className="space-y-2">
-                    {skill.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-center text-gray-700">
-                        <span className="inline-block w-2 h-2 bg-accent rounded-full mr-3"></span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+              <h2 className="text-xl font-bold text-primary mb-4">
+                {group.emoji} {group.title}
+              </h2>
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+              >
+                {group.skills.map((skill) => (
+                  <motion.div
+                    key={skill.name}
+                    variants={itemVariants}
+                    className="flex items-start justify-between gap-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg px-5 py-4 shadow-sm border border-blue-100"
+                  >
+                    <div>
+                      <p className="font-semibold text-primary">{skill.name}</p>
+                      <p className="text-sm text-gray-500 mt-0.5">{skill.note}</p>
+                    </div>
+                    <span className={`shrink-0 mt-0.5 px-2 py-0.5 rounded-full text-xs font-medium border ${levelColor[skill.level]}`}>
+                      {levelLabel[skill.level]}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
-          </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* IT Support Skills */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 現在迷上的東西 */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-2xl font-bold text-primary mb-8">🖥 硬體和系統那些事</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">🌱 現在迷上的東西</h2>
             <motion.div
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
-              {itSkills.map((skill, index) => (
+              {['XR / Extended Reality', 'Linux 系統操作', '網站架構設計'].map((item) => (
                 <motion.div
-                  key={index}
+                  key={item}
                   variants={itemVariants}
-                  className="bg-white p-4 rounded-lg shadow-md border-l-4 border-accent"
+                  className="bg-gradient-to-br from-yellow-50 to-orange-50 p-5 rounded-lg shadow-sm border-2 border-accent"
                 >
-                  <p className="text-gray-800 font-medium">{skill}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Productivity Tools */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl font-bold text-primary mb-8">📊 數據和簡報 (日常武器)</h2>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            >
-              {toolSkills.map((tool, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -10 }}
-                  className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-all"
-                >
-                  <h3 className="text-xl font-bold text-primary mb-4">{tool.name}</h3>
-                  <ul className="space-y-2">
-                    {tool.skills.map((skill, idx) => (
-                      <li key={idx} className="flex items-center text-gray-700">
-                        <span className="inline-block w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Learning */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl font-bold text-primary mb-8">🌱 現在迷上的東西</h2>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {[
-                'XR / Extended Reality',
-                'Linux 系統操作',
-                '網站架構設計',
-              ].map((skill, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-lg shadow-md border-2 border-accent"
-                >
-                  <p className="text-lg font-semibold text-primary">{skill}</p>
+                  <p className="font-semibold text-primary">{item}</p>
                 </motion.div>
               ))}
             </motion.div>

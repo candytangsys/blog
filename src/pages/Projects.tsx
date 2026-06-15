@@ -3,15 +3,27 @@ import { motion } from 'framer-motion'
 export default function Projects() {
   const projects = [
     {
-      title: '個人品牌網站',
-      description: '使用前端技術打造個人品牌網站，展示技能與經歷。',
+      title: '個人部落格網站',
+      description: '你現在看到的這個！用 React + TypeScript 打造的個人網站，展示技能、經歷與筆記。部署在 GitHub Pages。',
       tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-      link: '#',
+      link: 'https://github.com/candytangsys/blog',
     },
     {
-      title: '練習題集',
+      title: 'AR Heritage Explorer',
+      description: '淡江大學校園古蹟 AR 導覽系統。用手機瀏覽器就能體驗 AR，結合地圖、歷史解說與闖關問答，不需要安裝 App。',
+      tech: ['HTML', 'JavaScript', 'AR.js', 'A-Frame', 'Flask', 'SQLite'],
+      link: 'https://github.com/candytangsys/ar-heritage-explorer',
+    },
+    {
+      title: 'Question Number Generator',
+      description: '隨機分配題目給各組的小工具，適合課堂遊戲或團隊活動用。純 HTML 單頁實作。',
+      tech: ['HTML', 'CSS', 'JavaScript'],
+      link: 'https://github.com/candytangsys/Question-Number-Generator',
+    },
+    {
+      title: '程式練習題集',
       description: '整理與解決程式設計相關的練習題。',
-      tech: ['Java', 'html'],
+      tech: ['Java', 'HTML'],
       link: 'https://github.com/orgs/BasicExercises/repositories',
     },
   ]

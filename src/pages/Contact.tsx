@@ -186,51 +186,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Quick Info */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h2 className="text-2xl font-bold text-primary mb-8">一點點關於我 👤</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-lg shadow-md"
-              >
-                <h3 className="text-2xl font-bold text-primary mb-3">學校</h3>
-                <p className="text-gray-700">淡江大學資訊管理學系 大一學生</p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-lg shadow-md"
-              >
-                <h3 className="text-2xl font-bold text-primary mb-3">出身地</h3>
-                <p className="text-gray-700">新竹，台灣</p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-lg shadow-md md:col-span-2"
-              >
-                <h3 className="text-2xl font-bold text-primary mb-3">個人標語</h3>
-                <p className="text-gray-700 text-lg italic">
-                  "Driven by curiosity, growing through challenges."
-                </p>
-                <p className="text-gray-600 mt-2">
-                  一個帶著衝勁闖進未知領域的人，喜歡在挑戰中快速成長。
-                  <span className="line-through">不排除會崩潰的部分</span>
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   )
 }

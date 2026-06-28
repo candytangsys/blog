@@ -2,102 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* 背景層次 */
+  --bg-base:    #0a0e1a;
+  --bg-surface: #0f1629;
+  --bg-raised:  #141e35;
+  --bg-border:  #1e2d4a;
+
+  /* 主色 — 冷光三原色 */
+  --accent-blue:   #3878ff;
+  --accent-teal:   #00d4aa;
+  --accent-purple: #a78bfa;
+
+  /* 文字層次 */
+  --text-primary:   #e2e8f0;
+  --text-secondary: #7a8ba8;
+  --text-muted:     #4a5c78;
+  --text-code:      #00d4aa;
+
+  /* 特殊效果 */
+  --glow-blue:   rgba(56, 120, 255, 0.15);
+  --glow-teal:   rgba(0, 212, 170, 0.12);
+  --grid-line:   rgba(56, 120, 255, 0.04);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Noto Sans TC', 'Inter', 'Poppins', sans-serif;
-  background-color: #f8fafc;
-  color: #334155;
-  line-height: 1.75;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-/* 自訂動畫 */
-@keyframes blob {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(20px, -50px) scale(1.1);
-  }
-  50% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  75% {
-    transform: translate(50px, 50px) scale(1.05);
-  }
+body {
+  font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.75;
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
+code, .tag {
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* 文字漸層效果 */
-.gradient-text {
-  background: linear-gradient(to right, #06b6d4, #00d4ff, #ffffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 500; }
+h3 { font-size: 1.125rem; font-weight: 500; }
+p { font-size: 0.9375rem; line-height: 1.75; }
+
+h1, h2, h3 {
+  border-bottom: none;
+  text-decoration: none;
 }
 
-/* 發光效果 */
-.glow-effect {
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
-  transition: box-shadow 0.3s ease;
+/* 全域格線紋理 */
+.grid-texture {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-.glow-effect:hover {
-  box-shadow: 0 0 40px rgba(6, 182, 212, 0.8);
+/* 卡片元件 */
+.card {
+  background: var(--bg-surface);
+  border: 0.5px solid var(--bg-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
 }
 
-/* 卡片浮起效果 */
-.card-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-.card-lift:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.card:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
 }
 
-/* 按鈕脈衝動畫 */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
-  }
-}
-
-.btn-pulse {
-  animation: pulse-glow 2s infinite;
+.card:hover::before {
+  opacity: 0.6;
 }
 
 /* 平滑過渡 */
 a, button {
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* 獨特的反光效果 */
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-.shimmer {
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
-  background-size: 1000px 100%;
-  animation: shimmer 2s infinite;
 }

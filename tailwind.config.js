@@ -1,4 +1,7 @@
+import typography from '@tailwindcss/typography'
+
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -6,14 +9,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1e3a8a",
-        secondary: "#ffffff",
-        accent: "#06b6d4",
+        primary: "#3878ff",
+        accent: "#00d4aa",
+        accentPurple: "#a78bfa",
+        bg: {
+          base: "#0a0e1a",
+          surface: "#0f1629",
+          raised: "#141e35",
+          border: "#1e2d4a",
+        },
       },
       fontFamily: {
-        sans: ["'Noto Sans TC'", "'Inter'", "'Poppins'", "sans-serif"],
-        display: ["'Poppins'", "sans-serif"],
-        code: ["'Fira Code'", "monospace"],
+        sans: ["'Space Grotesk'", "'Noto Sans TC'", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
       },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -28,21 +36,7 @@ export default {
         '6xl': ['3.75rem', { lineHeight: '1' }],
         '7xl': ['4.5rem', { lineHeight: '1' }],
       },
-      boxShadow: {
-        'glow': '0 0 20px rgba(6, 182, 212, 0.5)',
-        'glow-lg': '0 0 40px rgba(6, 182, 212, 0.8)',
-      },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-      },
     },
   },
-  plugins: [],
+  plugins: [typography],
 }

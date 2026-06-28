@@ -1,25 +1,12 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-
-interface Activity {
-  title: string
-  date: string
-  tags: string[]
-  content: string[]
-}
+import CategoryFilter from '../components/CategoryFilter'
+import { blog } from '../data/blog'
 
 export default function Activities() {
-  const activities: Activity[] = [
-    {
-      title: 'SITCON 2026',
-      date: '2026',
-      tags: ['研討會', '資訊', '學生'],
-      content: [
-        '參加了 SITCON（Student Information Technology CONference）2026 年會。',
-        'SITCON 是由學生自發舉辦、面向學生的資訊技術研討會，每年吸引來自各地對資訊有熱情的學生參與。',
-        '在這次活動中聆聽了各種議程，接觸到不同領域的技術分享，也認識了一些志同道合的夥伴。',
-      ],
-    },
-  ]
+  const [filter, setFilter] = useState('全部')
+  const filteredPosts = blog.filter((p) => filter === '全部' || p.category === filter)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -37,7 +24,7 @@ export default function Activities() {
   return (
     <div className="pt-20 pb-20">
       {/* Header */}
-      <section className="bg-gradient-to-r from-primary to-blue-800 text-white py-16">
+      <section className="bg-[#0a0e1a] text-[#e2e8f0] py-16 grid-texture relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -45,65 +32,62 @@ export default function Activities() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl font-bold mb-4">活動心得 🎪</h1>
-            <p className="text-lg text-blue-100">參加各種活動後留下來的感想與紀錄</p>
+            <p className="text-lg text-[#7a8ba8]">參加各種活動後留下來的感想與紀錄</p>
           </motion.div>
         </div>
       </section>
 
       {/* Activities */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0a0e1a] grid-texture">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CategoryFilter selected={filter} onChange={setFilter} />
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             className="space-y-10"
           >
-            {activities.map((activity, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg shadow-md hover:shadow-xl transition-all border-l-4 border-accent overflow-hidden"
-              >
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
-                    <h2 className="text-2xl font-bold text-primary">{activity.title}</h2>
-                    <span className="text-sm text-accent font-semibold bg-white px-3 py-1 rounded-full shadow-sm">
-                      ⏰ {activity.date}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {activity.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-accent text-white text-xs rounded-full font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="space-y-3">
-                    {activity.content.map((paragraph, idx) => (
-                      <p key={idx} className="text-gray-700 leading-relaxed">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+            {filteredPosts.map((post) => (
+              <motion.div key={post.id} variants={itemVariants} className="card">
+                <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
+                  <h2 className="text-2xl font-bold text-[#c8d8f0]">{post.title}</h2>
+                  <span className="text-sm text-accent font-semibold bg-[#0f1629] px-3 py-1 rounded-full shadow-sm">
+                    ⏰ {post.date}{post.location ? ` · ${post.location}` : ''}
+                  </span>
                 </div>
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-accent text-white text-xs rounded-full font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="text-[#5a7090] leading-relaxed mb-4">{post.summary}</p>
+
+                <Link
+                  to={`/blog/${post.id}`}
+                  className="font-mono text-[11px] text-primary hover:underline flex items-center gap-1"
+                >
+                  查看詳情 →
+                </Link>
               </motion.div>
             ))}
           </motion.div>
 
-          {activities.length === 0 && (
+          {filteredPosts.length === 0 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-20 text-gray-400"
+              className="text-center py-20 text-[#5a7090]"
             >
               <p className="text-5xl mb-4">🌱</p>
-              <p>還沒有活動心得，敬請期待！</p>
+              <p>還沒有這個分類的活動心得，敬請期待！</p>
             </motion.div>
           )}
         </div>

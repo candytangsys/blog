@@ -1,43 +1,68 @@
-# Tang Yu's Blog
+# tang yu — 個人作品集
 
-個人部落格，用來記錄學習過程、參與活動的心得，以及展示自己的技能與經歷。
+> 莽夫型學生開發者 × AR / 全端探索中
 
-🔗 **網站連結：** https://candytangsys.github.io/blog/#/
+[![GitHub Pages](https://img.shields.io/badge/網站-上線中-brightgreen)](https://candytangsys.github.io/blog/)
+[![React](https://img.shields.io/badge/React-18-61dafb?logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-5-646cff?logo=vite)](https://vitejs.dev)
 
 ---
 
-## 頁面介紹
+## 關於
 
-| 頁面 | 說明 |
-|------|------|
-| 關於我 | 自我介紹、個性標籤與經歷概覽 |
-| 技能 | 目前掌握的技術與工具 |
-| 參與活動 | 社團、工讀、活動等經歷 |
-| 專案 | Side projects 與練習作品 |
-| 筆記整理 | 工具與程式語言學習筆記（連結至 HackMD） |
-| 活動心得 | 參加各種活動後的感想與紀錄 |
-| 聯絡 | 聯絡方式 |
+這是我的個人作品集暨部落格網站，展示技能、經歷、專案與學習筆記，部署於 GitHub Pages。
+
+**技術方向：** XR / Extended Reality · 網站開發 · Linux 系統
+
+## 網站頁面
+
+- **首頁** — 自我介紹、角色輪播
+- **Skills** — 技能清單與熟悉度
+- **Projects** — 作品集
+- **Experience** — 社團與工作經歷時間軸
+- **Blog / Notes** — 活動心得與學習筆記（串接 HackMD）
+- **Contact** — 聯絡方式
 
 ## 技術棧
 
-- **Framework：** React 18 + TypeScript
-- **Bundler：** Vite
-- **Styling：** Tailwind CSS
-- **Animation：** Framer Motion
-- **Routing：** React Router v6
-- **Deploy：** GitHub Pages
+**前端**
+- React 18 + TypeScript 5
+- Vite 5（build tool）
+- Tailwind CSS v3 + @tailwindcss/typography
+- Framer Motion（頁面過場動畫）
+- React Router DOM v6（HashRouter）
 
-## 本地開發
+**套件**
+- `react-markdown` + `remark-gfm`（Markdown 渲染）
+- `yet-another-react-lightbox`（圖片燈箱）
+
+**部署**
+- GitHub Pages（透過 GitHub Actions 自動部署，push to `main` 觸發）
+
+## 在本地執行
 
 ```bash
+git clone https://github.com/candytangsys/blog.git
+cd blog
 npm install
 npm run dev
 ```
 
-## 部署
+開啟 `http://localhost:5173`
 
 ```bash
+# 建置 production
 npm run build
+
+# 預覽 production build
+npm run preview
 ```
 
-靜態檔案輸出至 `dist/`，部署至 GitHub Pages。
+## 聯絡
+
+- GitHub：https://github.com/candytangsys
+
+## 授權
+
+© 2026 tang yu. All rights reserved.
